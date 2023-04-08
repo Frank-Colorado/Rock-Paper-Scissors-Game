@@ -10,7 +10,7 @@ This web application is a Rock-Paper-Scissors game which was created using a tut
 
 ## Website URL
 
-https://github.com/Frank-Colorado/rock-paper-scissors-game.git
+https://frank-colorado.github.io/rock-paper-scissors-game/
 
 ## Installation
 
