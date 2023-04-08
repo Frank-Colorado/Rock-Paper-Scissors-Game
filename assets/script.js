@@ -51,28 +51,17 @@ const displayDOM = (score, player, computer) => {
 };
 
 const rpsRound = (playerChoice) => {
-  // This function will call computerGeneration
-  let computerChoice = computerGeneration();
-  console.log(playerChoice);
-  console.log(computerChoice);
-  let score = calculateScore(playerChoice, computerChoice);
+  const computerChoice = computerGeneration();
+  const score = calculateScore(playerChoice, computerChoice);
   displayDOM(score, playerChoice, computerChoice);
-
-  // Then it will take both player/computer values and send to calculateScore function
-  // Then it will take player/computer/score values and send to displayDOM function
 };
 // This function adds onclick to all rpsBtns and initiates the game
 // Then sends player value to rpsRound function
 const playGame = () => {
   rpsBtn.forEach((btn) => {
-    btn.onclick = () => {
-      rpsRound(btn.value);
-    };
+    btn.onclick = () => rpsRound(btn.value);
   });
-  endBtn.onclick = () => {
-    console.log("clicked");
-    endGame();
-  };
+  endBtn.onclick = () => endGame();
 };
 
 const endGame = () => {
