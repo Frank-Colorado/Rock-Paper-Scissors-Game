@@ -11,8 +11,8 @@ const finalScore = {
 const computerGeneration = () => {
   // This function will generate a random RPS choice from the computer
   const rpsArray = ["Rock", "Paper", "Scissors"];
-  const randomChoice = Math.floor(Math.random() * rpsArray.length);
-  return rpsArray[randomChoice];
+  const randomChoice = rpsArray[Math.floor(Math.random() * rpsArray.length)];
+  return randomChoice;
 };
 const calculateScore = (player, computer) => {
   //This function will calculate the score off the player choice vs computer choice
