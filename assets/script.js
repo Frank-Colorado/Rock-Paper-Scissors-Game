@@ -42,8 +42,9 @@ const displayDOM = (score, player, computer) => {
     case 1:
       resultText.textContent = "You Won!";
   }
+
   currentRoundText.textContent = `👨 ${player} VS 🤖 ${computer}`;
-  scoreText.textContent = `Score: ${Number(scoreText.textContent) + score}`;
+  scoreText.textContent = `${Number(scoreText.textContent) + score}`;
 };
 
 const rpsRound = (playerChoice) => {
@@ -61,19 +62,9 @@ const playGame = () => {
 };
 
 const endGame = () => {
-  finalScore.score = 0;
   scoreText.textContent = "";
   currentRoundText.textContent = "";
   resultText.textContent = "";
 };
 
 playGame();
-if (score === 1) {
-  resultText.textContent = "You Won!";
-  finalScore.score++;
-} else if (score === -1) {
-  resultText.textContent = "You Lost!";
-  finalScore.score--;
-} else {
-  resultText.textContent = "It's a Draw!";
-}
