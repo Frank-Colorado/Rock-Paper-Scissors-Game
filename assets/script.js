@@ -11,6 +11,20 @@ const computerGeneration = () => {
 };
 const calculateScore = (player, computer) => {
   //This function will calculate the score off the player choice vs computer choice
+  let score;
+  if (player === computer) {
+    score = 0;
+  } else if (player === "Rock" && computer === "Scissors") {
+    score = 1;
+  } else if (player === "Scissors" && computer === "Paper") {
+    score = 1;
+  } else if (player === "Paper" && computer === "Rock") {
+    score = 1;
+  } else {
+    score = -1;
+  }
+
+  return score;
 };
 
 const displayDOM = (score, player, computer) => {
@@ -18,11 +32,13 @@ const displayDOM = (score, player, computer) => {
   //It will display score, player/computer choices, and result of win/loss
 };
 
-const rpsRound = (player) => {
-  let computerChoice = computerGeneration();
-  console.log(player);
-  console.log(computerChoice);
+const rpsRound = (playerChoice) => {
   // This function will call computerGeneration
+  let computerChoice = computerGeneration();
+  console.log(playerChoice);
+  console.log(computerChoice);
+  let score = calculateScore(playerChoice, computerChoice);
+  console.log(score);
   // Then it will take both player/computer values and send to calculateScore function
   // Then it will take player/computer/score values and send to displayDOM function
 };
