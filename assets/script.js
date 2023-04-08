@@ -4,10 +4,6 @@ const resultText = document.querySelector("#result");
 const rpsBtn = document.querySelectorAll(".rpsButton");
 const endBtn = document.querySelector("#endGameButton");
 
-// Object containing the overall score of the game
-const finalScore = {
-  score: 0,
-};
 const computerGeneration = () => {
   // This function will generate a random RPS choice from the computer
   const rpsArray = ["Rock", "Paper", "Scissors"];
@@ -39,17 +35,15 @@ const displayDOM = (score, player, computer) => {
   switch (score) {
     case -1:
       resultText.textContent = "You Lost!";
-      finalScore.score--;
       break;
     case 0:
       resultText.textContent = "It's a Draw!";
       break;
     case 1:
       resultText.textContent = "You Won!";
-      finalScore.score++;
   }
   currentRoundText.textContent = `👨 ${player} VS 🤖 ${computer}`;
-  scoreText.textContent = `Score: ${finalScore.score}`;
+  scoreText.textContent = `Score: ${Number(scoreText.textContent) + score}`;
 };
 
 const rpsRound = (playerChoice) => {
