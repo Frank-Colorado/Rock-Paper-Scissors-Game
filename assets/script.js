@@ -5,6 +5,9 @@ const rpsBtn = document.querySelectorAll(".rpsButton");
 
 const computerGeneration = () => {
   // This function will generate a random RPS choice from the computer
+  const rpsArray = ["Rock", "Paper", "Scissors"];
+  const randomChoice = Math.floor(Math.random() * rpsArray.length);
+  return rpsArray[randomChoice];
 };
 const calculateScore = (player, computer) => {
   //This function will calculate the score off the player choice vs computer choice
@@ -16,6 +19,9 @@ const displayDOM = (score, player, computer) => {
 };
 
 const rpsRound = (player) => {
+  let computerChoice = computerGeneration();
+  console.log(player);
+  console.log(computerChoice);
   // This function will call computerGeneration
   // Then it will take both player/computer values and send to calculateScore function
   // Then it will take player/computer/score values and send to displayDOM function
