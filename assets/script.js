@@ -35,18 +35,20 @@ const calculateScore = (player, computer) => {
 const displayDOM = (score, player, computer) => {
   //This function will change the display of the DOM.
   //It will display score, player/computer choices, and result of win/loss
-  currentRoundText.textContent = `👨 ${player} VS 🤖 ${computer}`;
 
-  if (score === 1) {
-    resultText.textContent = "You Won!";
-    finalScore.score++;
-  } else if (score === -1) {
-    resultText.textContent = "You Lost!";
-    finalScore.score--;
-  } else {
-    resultText.textContent = "It's a Draw!";
+  switch (score) {
+    case -1:
+      resultText.textContent = "You Lost!";
+      finalScore.score--;
+      break;
+    case 0:
+      resultText.textContent = "It's a Draw!";
+      break;
+    case 1:
+      resultText.textContent = "You Won!";
+      finalScore.score++;
   }
-
+  currentRoundText.textContent = `👨 ${player} VS 🤖 ${computer}`;
   scoreText.textContent = `Score: ${finalScore.score}`;
 };
 
@@ -72,3 +74,12 @@ const endGame = () => {
 };
 
 playGame();
+if (score === 1) {
+  resultText.textContent = "You Won!";
+  finalScore.score++;
+} else if (score === -1) {
+  resultText.textContent = "You Lost!";
+  finalScore.score--;
+} else {
+  resultText.textContent = "It's a Draw!";
+}
