@@ -1,8 +1,10 @@
 const scoreText = document.querySelector("#player-score");
-const contentText = document.querySelector("#content");
+const currentRoundText = document.querySelector("#current-round");
 const resultText = document.querySelector("#result");
 const rpsBtn = document.querySelectorAll(".rpsButton");
+const endBtn = document.querySelector("#endGameButton");
 
+// Object containing the overall score of the game
 const finalScore = {
   score: 0,
 };
@@ -33,7 +35,7 @@ const calculateScore = (player, computer) => {
 const displayDOM = (score, player, computer) => {
   //This function will change the display of the DOM.
   //It will display score, player/computer choices, and result of win/loss
-  contentText.textContent = `👨 ${player} VS 🤖 ${computer}`;
+  currentRoundText.textContent = `👨 ${player} VS 🤖 ${computer}`;
 
   if (score === 1) {
     resultText.textContent = "You Won!";
@@ -67,6 +69,17 @@ const playGame = () => {
       rpsRound(btn.value);
     };
   });
+  endBtn.onclick = () => {
+    console.log("clicked");
+    endGame();
+  };
+};
+
+const endGame = () => {
+  finalScore.score = 0;
+  scoreText.textContent = "";
+  currentRoundText.textContent = "";
+  resultText.textContent = "";
 };
 
 playGame();
